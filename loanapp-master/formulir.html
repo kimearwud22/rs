@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Formulir</title>
+</head>
+<body>
+    <header>Formulir Loan Payment</header>
+    <h1>Formulir</h1>
+    <button><a href="index.html">Kembali</a></button>
+    <form>
+        <fieldset>
+            <form>
+        <p>Nama Lengkap</p>
+        <input type="string" name="namalengkap" id='name' placeholder="Masukkan nama anda" oninput="program()">
+        <p>Email</p>
+        <input type="email" name="e-mail" id="email" placeholder="Masukkan e-mail anda" oninput="program()">
+        <p>Jenis Kelamin</p>
+        <input type="radio" name="jeniskelamin" value="pria" oninput="pilihanradio()"> Pria
+        <br>
+        <input type="radio" name="jeniskelamin" value="wanita" oninput="pilihanradio()"> Wanita
+        <p>Agama</p>
+        <select id="pilihan" class="select" onchange="Agama()">
+            <option value="-" selected>Pilih</option>
+            <option value="islam"> Islam</option>
+            <option value="kristen"> Kristen</option>
+            <option value="hindu"> Hindu</option>
+            <option value="buddha"> Buddha</option>
+            <option value="konghucu">Konghucu</option>
+        </select>
+        <p>Alamat</p>
+        <textarea name="alamat" id="address" cols="30" rows="5" placeholder="Masukkan alamat anda di sini" oninput="program()"></textarea>
+        </fieldset>
+    </form>
+    <button onclick="program()">Kirim</button>
+    <p>Nama Lengkap : </p>
+    <div id="nameA"></div>
+    <p>Email : </p>
+    <div id="emailA"></div>
+    <p>Jenis Kelamin </p>
+    <div id="gender"></div>
+    <p>Agama </p>
+    <div id="agamaA"></div>
+    <p>Alamat : </p>
+    <div id="alamatA"></div>
+    <script>
+    function program(){
+        let nama = document.getElementById('name').value;
+        document.getElementById('nameA').innerHTML = nama
+        let email = document.getElementById('email').value;
+        document.getElementById('emailA').innerHTML = email
+        let alamat = document.getElementById('address').value;
+        document.getElementById('alamatA').innerHTML = alamat
+        proses1()
+    }
+        function pilihanradio(){
+        var pilihan = ""
+        var pilih =document.getElementsByName('jeniskelamin');
+        for(i = 0; i < pilih.length; i++ ){
+            if (pilih[i].checked)
+            pilihan = pilih[i].value;
+            }
+            document.getElementById("gender").innerHTML = pilihan; 
+    }
+        function Agama(){
+            pilihan = document.getElementById('pilihan').value;
+            document.getElementById('agamaA').innerHTML = pilihan;
+        let alamat = document.getElementById('address')
+        document.getElementById('alamatA').innerHTML = alamat.value
+    }
+    </script>
+</body>
+</html>
